@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-Kind: Application
+kind: Application
 metadata:
   name: giropops-senhas
   namespace: argocd
@@ -14,4 +14,7 @@ spec:
     namespace: giropops-senhas
     server: 'https://kubernets.default.svc'
   syncPolicy:
-    automated: {}
+    automated:
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
